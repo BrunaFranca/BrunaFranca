@@ -6,10 +6,6 @@
 </p>
 
 <p align="center">
-  <img src="assets/charlotte.jpg" width="300" alt="Charlotte lendo na cama" />
-</p>
-
-<p align="center">
   <img src="https://skillicons.dev/icons?i=aws,kubernetes,docker,nginx,linux&theme=light" alt="Cloud e plataforma" /><br/>
   <img src="https://skillicons.dev/icons?i=postgres,mongodb,redis,kafka,elasticsearch&theme=light" alt="Dados" /><br/>
   <img src="https://skillicons.dev/icons?i=gitlab,jenkins,grafana,prometheus&theme=light" alt="CI/CD e observabilidade" /><br/>
@@ -22,5 +18,5 @@
 
 <p align="center">
   <i>"Tarde Vos amei, ó Beleza tão antiga e tão nova, tarde Vos amei!"</i><br/>
-  <sub>Santo Agostinho &nbsp;✿</sub>
+  <sub>Santo Agostinho</sub>
 </p>
