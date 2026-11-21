@@ -3,8 +3,12 @@
   <a href="https://linkedin.com/in/brunafranca"><img src="https://img.shields.io/badge/LinkedIn-FBEFF2?style=flat-square&logo=linkedin&logoColor=8A4A5C" alt="LinkedIn" /></a>
 </p>
 
+<br/>
+
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=aws,kubernetes,docker,nginx,linux,postgres,mongodb,redis,elasticsearch,gitlab,jenkins,grafana,prometheus,py,bash,java&perline=4" width="24%" alt="Tecnologias" />
-  &nbsp;&nbsp;
-  <img src="assets/vida-da-bruna.svg" width="67%" alt="Vida da Bruna: joguinho em pixel art" />
+  <img src="https://skillicons.dev/icons?i=aws,kubernetes,docker,nginx,linux,postgres,mongodb,redis,elasticsearch,gitlab,jenkins,grafana,prometheus,py,bash,java&perline=4" width="17%" alt="Tecnologias" />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/vida-da-bruna.svg" width="57%" alt="Vida da Bruna: joguinho em pixel art" />
 </p>
+
+<br/>
