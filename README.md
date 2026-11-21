@@ -6,9 +6,9 @@
 <br/>
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=aws,kubernetes,docker,nginx,linux,postgres,mongodb,redis,elasticsearch,gitlab,jenkins,grafana,prometheus,py,bash,java&perline=4" width="17%" alt="Tecnologias" />
+  <img src="https://skillicons.dev/icons?i=aws,kubernetes,docker,nginx,linux,postgres,mongodb,redis,elasticsearch,gitlab,jenkins,grafana,prometheus,py,bash,java&perline=4" width="19%" alt="Tecnologias" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="assets/vida-da-bruna.svg" width="57%" alt="Vida da Bruna: joguinho em pixel art" />
+  <img src="assets/vida-da-bruna.svg" width="64%" alt="Vida da Bruna: joguinho em pixel art" />
 </p>
 
 <br/>
