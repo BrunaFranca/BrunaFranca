@@ -30,7 +30,7 @@
 <br/>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/BrunaFranca/BrunaFranca/output/github-snake.svg" width="100%" alt="Contribuições" />
+  <img src="assets/vida-da-bruna.svg" width="100%" alt="Vida da Bruna: joguinho em pixel art" />
 </p>
 
 <p align="center">
