@@ -32,6 +32,3 @@
 <p align="center">
   <img src="assets/vida-da-bruna.svg" width="100%" alt="Vida da Bruna: joguinho em pixel art" />
 </p>
-
-<p align="center">
-</p>
