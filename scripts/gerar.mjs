@@ -93,42 +93,56 @@ const copa = [
 ];
 const nota = ["..NN.", "..N.N", "..N..", "NNN..", "NNN.."];
 const coracao = [".PP.PP.", "PPPPPPP", "PPPPPPP", ".PPPPP.", "..PPP..", "...P..."];
-const notebook = ["KKKKKKKKK", "KssssCssK", "KsCsCsssK", "KssCssssK", "KKKKKKKKK", "LLLLLLLLLLL"];
+const ostensorio = [
+  "....Y....",
+  "...YYY...",
+  "....Y....",
+  ".Y.yYy.Y.",
+  "..yYYYy..",
+  "YyYWWWYyY",
+  ".yYWWWYy.",
+  "YyYWWWYyY",
+  "..yYYYy..",
+  ".Y.yYy.Y.",
+  "....Y....",
+  "...YYY...",
+  "..YYYYY..",
+];
+const sacola = ["..KK..", ".K..K.", "PPPPPP", "PPPPPP", "PPPPPP", "PPPPPP"];
+const notebook =["KKKKKKKKK", "KssssCssK", "KsCsCsssK", "KssCssssK", "KKKKKKKKK", "LLLLLLLLLLL"];
 
-function pessoa(x, cab, camisa, calca, longo = false) {
-  const p = { H: cab, S: "#EFC3A4", E: "#3B2418", C: camisa, P: calca, F: "#FFFFFF" };
+/** Pessoa genérica. cabelo: "curto" | "longo" | "coque". */
+function pessoa(x, { cab, roupa, calca = "#4F5B6E", cabelo = "curto", vestido = false, barba = false }) {
+  const p = { H: cab, S: "#EFC3A4", E: "#3B2418", C: roupa, P: calca, F: "#FFFFFF" };
+  const longo = cabelo === "longo";
   const lin = [
-    "..HHHH..",
-    ".HHHHHH.",
+    ...(cabelo === "coque" ? ["...HH...", "..HHHH..", ".HHHHHH."] : ["..HHHH..", ".HHHHHH."]),
     ".HSSSSH.",
     ".SESSES.",
-    ".SSSSSS.",
+    barba ? ".SHHHHS." : ".SSSSSS.",
     "..SSSS..",
     longo ? ".HCCCCH." : "..CCCC..",
     longo ? "HCCCCCCH" : ".CCCCCC.",
     "SCCCCCCS",
     "SCCCCCCS",
-    ".CCCCCC.",
-    ".PPPPPP.",
-    ".PP..PP.",
-    ".PP..PP.",
-    ".PP..PP.",
-    ".PP..PP.",
-    ".FF..FF.",
+    ...(vestido
+      ? [".CCCCCC.", "CCCCCCCC", "CCCCCCCC", ".SS..SS.", ".SS..SS.", ".FF..FF."]
+      : [".CCCCCC.", ".PPPPPP.", ".PP..PP.", ".PP..PP.", ".PP..PP.", ".PP..PP.", ".FF..FF."]),
   ];
   return sprite(lin, p, x, CHAO - lin.length);
 }
 
 // ---------- linha do tempo ----------
 const estacoes = [
-  { id: "casa", x: 130, legenda: "casa · Alexis e Estrela" },
-  { id: "catedral", x: 280, legenda: "catedral" },
-  { id: "trabalho", x: 430, legenda: "trabalho" },
-  { id: "piano", x: 580, legenda: "piano" },
-  { id: "familia", x: 730, legenda: "família e amigos" },
+  { id: "casa", x: 130 },
+  { id: "catedral", x: 280 },
+  { id: "trabalho", x: 430 },
+  { id: "piano", x: 580 },
+  { id: "familia", x: 730 },
+  { id: "shopping", x: 928 },
 ];
 const INICIO = 20;
-const FIM = 900;
+const FIM = 1040;
 const FADE = 0.6;
 
 let t = FADE;
@@ -201,14 +215,14 @@ for (let i = 0; i < 6; i++) {
   nuvens += ret(nx, ny, 14, 3, "#FFFFFF") + ret(nx + 3, ny - 2, 8, 2, "#FFFFFF");
 }
 let arvores = "";
-for (let i = 0, ax = -10; ax < 720; i++, ax += 26) {
+for (let i = 0, ax = -10; ax < 760; i++, ax += 26) {
   arvores += sprite(copa, i % 3 === 1 ? IPE : ARVORE, ax, CHAO - 26, 2);
 }
 const chao = ret(0, 56, W, 4, "#BFE3B0") + ret(0, 60, W, 6, "#F3ECE8") + ret(0, 66, W, 1, "#D9CFE0") + ret(0, 67, W, 5, "#D3CEDA");
 
 let mundo = "";
-for (let lx = 0; lx < 1000; lx += 12) mundo += ret(lx, 60, 1, 6, "#E4DAD5");
-for (let fx = 40; fx < 950; fx += 55) mundo += ret(fx, 55, 3, 2, "#F2A7C0") + ret(fx + 1, 54, 1, 1, "#EE8FB0") + ret(fx, 57, 3, 1, "#8CC48A");
+for (let lx = 0; lx < 1300; lx += 12) mundo += ret(lx, 60, 1, 6, "#E4DAD5");
+for (let fx = 40; fx < 1250; fx += 55) mundo += ret(fx, 55, 3, 2, "#F2A7C0") + ret(fx + 1, 54, 1, 1, "#EE8FB0") + ret(fx, 57, 3, 1, "#8CC48A");
 
 // casa + gatas
 {
@@ -255,28 +269,39 @@ mundo += sprite(
   CHAO - 11,
 );
 // família e amigos
-mundo += pessoa(748, "#3B2A20", "#B8D8F0", "#5A6B8C") + pessoa(759, "#C9C9C9", "#E8B7D0", "#7A6A8C", true);
-mundo += pessoa(770, "#7A4E37", "#F6D7A7", "#4F5B6E") + pessoa(781, "#1F1A1C", "#C7E6C1", "#5A5A66", true);
+mundo += pessoa(748, { cab: "#DAD6DE", roupa: "#C9B6E4", cabelo: "coque", vestido: true }); // vó
+mundo += pessoa(759, { cab: "#3B2A20", roupa: "#A9CBE8", barba: true }); // tio
+mundo += pessoa(770, { cab: "#7A4E37", roupa: "#F4B6C8", cabelo: "longo", vestido: true }); // amiga
+mundo += pessoa(781, { cab: "#E3C27A", roupa: "#BFE3CF", cabelo: "longo", vestido: true }); // amiga
+// shopping
+{
+  const sx = 900;
+  mundo += ret(sx, CHAO - 36, 70, 36, "#FBE6D8") + ret(sx - 2, CHAO - 38, 74, 3, "#F2C7B0");
+  for (let i = 0; i < 70; i += 6) mundo += ret(sx + i, CHAO - 22, 3, 4, "#F4A7C0") + ret(sx + i + 3, CHAO - 22, 3, 4, "#FFFFFF");
+  mundo += ret(sx + 26, CHAO - 17, 18, 17, "#CFE8F3") + ret(sx + 34, CHAO - 17, 1, 17, "#FFFFFF");
+  for (const [vx, cor] of [[sx + 5, "#F27BA0"], [sx + 52, "#B48AD8"]]) {
+    mundo += ret(vx, CHAO - 15, 14, 10, "#E8F4FA") + sprite(sacola, { K: "#8A8590", P: cor }, vx + 4, CHAO - 13);
+  }
+  mundo += ret(sx + 10, CHAO - 33, 50, 7, "#FFFFFF") + ret(sx + 12, CHAO - 31, 46, 3, "#F6D3DE");
+}
 
 // ---------- eventos nas estações ----------
-const [casa, catedral, trabalho, piano, familia] = estacoes;
+const [casa, catedral, trabalho, piano, familia, shopping] = estacoes;
 let eventos = "";
 eventos += `<g class="${anim("ev1", mostra(casa.a, casa.b))}">${sprite(coracao, { P: "#F27BA0" }, 154, CHAO - 16)}</g>`;
-eventos += `<g class="${anim("ev2", mostra(catedral.a, catedral.b))}">${ret(306, 1, 5, 1, "#F6E08A")}${ret(308, -1, 1, 5, "#F6E08A")}${ret(303, 4, 1, 1, "#F6E08A")}${ret(313, 3, 1, 1, "#F6E08A")}</g>`;
+const OURO = { Y: "#D9AE3F", y: "#F3D57E", W: "#FFFFFF" };
+eventos += `<g class="${anim("ev2a", sobe(catedral.a, catedral.b, 0.2))}">${sprite(ostensorio, OURO, 292, CHAO - 34)}</g>`;
 eventos += `<g class="${anim("ev3", mostra(trabalho.a, trabalho.b))}">${ret(427, CHAO - 36, 17, 11, "#FFFFFF")}${ret(431, CHAO - 25, 2, 2, "#FFFFFF")}${sprite(notebook, { K: "#55505A", s: "#BDE3F5", C: "#5FB37E", L: "#8A8590" }, 430, CHAO - 34)}</g>`;
 eventos += `<g class="${anim("ev4a", sobe(piano.a, piano.b, 0.2))}">${sprite(nota, { N: "#E07A9B" }, 596, CHAO - 18)}</g>`;
 eventos += `<g class="${anim("ev4b", sobe(piano.a, piano.b, 1.2))}">${sprite(nota, { N: "#B48AD8" }, 604, CHAO - 18)}</g>`;
 eventos += `<g class="${anim("ev5a", sobe(familia.a, familia.b, 0.2))}">${sprite(coracao, { P: "#F27BA0" }, 756, CHAO - 24)}</g>`;
 eventos += `<g class="${anim("ev5b", sobe(familia.a, familia.b, 1.0))}">${sprite(coracao, { P: "#F6A9C2" }, 774, CHAO - 24)}</g>`;
 
-let legendas = "";
-for (const [i, e] of estacoes.entries()) {
-  const larg = Math.round(e.legenda.length * 3.1 + 10);
-  legendas += `<g class="${anim(`lg${i}`, mostra(e.a, e.b))}">${`<rect x="${(W - larg) / 2}" y="4" width="${larg}" height="9" rx="2" fill="#FFFFFF" fill-opacity=".85"/>`}<text x="${W / 2}" y="10.6" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="5" fill="#8A4A5C">${e.legenda}</text></g>`;
-}
+// sacolinhas: aparecem quando ela sai do shopping e vão com ela até o fim
+const sacolas = `<g class="${anim("sac", ligado([[shopping.a + 1.2, T - 0.02]], "opacity:1", "opacity:0"))}">${sprite(sacola, { K: "#8A8590", P: "#9B6FD0" }, -3, 11)}${sprite(sacola, { K: "#8A8590", P: "#E86A97" }, 8, 11)}${sprite(sacola, { K: "#8A8590", P: "#5DB892" }, 11, 12)}</g>`;
 
 const heroiY = CHAO - corpo.length - 5;
-const heroi = `<g transform="translate(${HEROI_X} ${heroiY})">${sprite(corpo, BRUNA, 0, 0)}<g class="para">${sprite(pernasParada, BRUNA, 0, corpo.length)}</g><g class="anda"><g class="pa">${sprite(pernasA, BRUNA, 0, corpo.length)}</g><g class="pb">${sprite(pernasB, BRUNA, 0, corpo.length)}</g></g></g>`;
+const heroi = `<g transform="translate(${HEROI_X} ${heroiY})">${sprite(corpo, BRUNA, 0, 0)}<g class="para">${sprite(pernasParada, BRUNA, 0, corpo.length)}</g><g class="anda"><g class="pa">${sprite(pernasA, BRUNA, 0, corpo.length)}</g><g class="pb">${sprite(pernasB, BRUNA, 0, corpo.length)}</g></g>${sacolas}</g>`;
 
 // ---------- montagem ----------
 const at = process.argv.find((a) => a.startsWith("--at="));
@@ -287,7 +312,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
 <clipPath id="tela"><rect width="${W}" height="${H}" rx="3"/></clipPath>
 <g clip-path="url(#tela)"><g class="cena">
 ${ceu}<g class="nuv">${nuvens}</g><g class="arv">${arvores}</g>${chao}
-<g class="cam">${mundo}${eventos}</g>${heroi}${legendas}
+<g class="cam">${mundo}${eventos}</g>${heroi}
 </g></g></svg>`;
 
 mkdirSync("assets", { recursive: true });
