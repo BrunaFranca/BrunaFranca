@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=aws,kubernetes,docker,nginx,linux,postgres,mongodb,redis,elasticsearch,gitlab,jenkins,grafana,prometheus,py,bash,java&perline=4" width="21%" alt="Tecnologias" />
+  <img src="https://skillicons.dev/icons?i=aws,kubernetes,docker,nginx,linux,postgres,mongodb,redis,elasticsearch,gitlab,jenkins,grafana,prometheus,py,bash,java&perline=4" width="24%" alt="Tecnologias" />
   &nbsp;&nbsp;
-  <img src="assets/vida-da-bruna.svg" width="74%" alt="Vida da Bruna: joguinho em pixel art" />
+  <img src="assets/vida-da-bruna.svg" width="67%" alt="Vida da Bruna: joguinho em pixel art" />
 </p>

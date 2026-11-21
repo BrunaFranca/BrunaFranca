@@ -307,8 +307,14 @@ const heroi = `<g transform="translate(${HEROI_X} ${heroiY})">${sprite(corpo, BR
 const at = process.argv.find((a) => a.startsWith("--at="));
 if (at) css.push(`*{animation-play-state:paused!important;animation-delay:-${at.slice(5)}s!important}`);
 
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W * 4}" height="${H * 4}" shape-rendering="crispEdges" role="img" aria-label="Vida da Bruna: um joguinho em pixel art">
+// frase embaixo da cena; rosa médio para ler bem no tema claro e no escuro do GitHub
+const FRASE = "Bruna, 27 anos · DevOps/SRE em Maringá · rock, piano e gatinhas";
+const RODAPE = 14;
+const HT = H + RODAPE;
+
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${HT}" width="${W * 4}" height="${HT * 4}" shape-rendering="crispEdges" role="img" aria-label="Vida da Bruna: um joguinho em pixel art. ${FRASE}">
 <style>${css.join("")}</style>
+<text x="${W / 2}" y="${H + 10}" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="6.2" fill="#D58AA1" shape-rendering="auto">${FRASE}</text>
 <clipPath id="tela"><rect width="${W}" height="${H}" rx="3"/></clipPath>
 <g clip-path="url(#tela)"><g class="cena">
 ${ceu}<g class="nuv">${nuvens}</g><g class="arv">${arvores}</g>${chao}
