@@ -34,6 +34,4 @@
 </p>
 
 <p align="center">
-  <i>"Tarde Vos amei, ó Beleza tão antiga e tão nova, tarde Vos amei!"</i><br/>
-  <sub>Santo Agostinho</sub>
 </p>
